@@ -70,10 +70,10 @@
                 <button class="mode-btn selected" id="btn4" onclick="setPlayers(4)">4</button>
             </div>
             <div id="inputs">
-                <div class="input-group" id="in1" style="display:block"><label>JOGADOR 1</label><input type="text" id="n1" value="Jogador 1"></div>
-                <div class="input-group" id="in2" style="display:block"><label>JOGADOR 2</label><input type="text" id="n2" value="Jogador 2"></div>
-                <div class="input-group" id="in3" style="display:block"><label>JOGADOR 3</label><input type="text" id="n3" value="Jogador 3"></div>
-                <div class="input-group" id="in4" style="display:block"><label>JOGADOR 4</label><input type="text" id="n4" value="Jogador 4"></div>
+                <div class="input-group" id="in1" style="display:block"><label>JOGADOR 1</label><input type="text" id="n1" value="Jogador 1" onfocus="if(this.value=='Jogador 1')this.value=''"></div>
+                <div class="input-group" id="in2" style="display:block"><label>JOGADOR 2</label><input type="text" id="n2" value="Jogador 2" onfocus="if(this.value=='Jogador 2')this.value=''"></div>
+                <div class="input-group" id="in3" style="display:block"><label>JOGADOR 3</label><input type="text" id="n3" value="Jogador 3" onfocus="if(this.value=='Jogador 3')this.value=''"></div>
+                <div class="input-group" id="in4" style="display:block"><label>JOGADOR 4</label><input type="text" id="n4" value="Jogador 4" onfocus="if(this.value=='Jogador 4')this.value=''"></div>
             </div>
             <button class="btn-main" onclick="initGame()">INICIAR JOGO 🔥</button>
         </div>
@@ -160,11 +160,11 @@
                 let angle = rotation % 360;
                 let sel = null;
 
-                // PRECISÃO RECALIBRADA (40 graus de margem para acerto fácil)
-                if (angle >= 340 || angle < 20) sel = 1;      
-                else if (angle >= 70 && angle < 110) sel = 2;  
-                else if (angle >= 160 && angle < 200) sel = 3; 
-                else if (angle >= 250 && angle < 290) sel = 4; 
+                // PRECISÃO RECALIBRADA (Fatia de 60 graus para garantir o acerto visual)
+                if (angle >= 330 || angle < 30) sel = 1;      
+                else if (angle >= 60 && angle < 120) sel = 2;  
+                else if (angle >= 150 && angle < 210) sel = 3; 
+                else if (angle >= 240 && angle < 300) sel = 4; 
 
                 const slot = sel ? document.getElementById('slot-'+sel) : null;
 
